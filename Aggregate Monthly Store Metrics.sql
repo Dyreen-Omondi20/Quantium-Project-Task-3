@@ -1,0 +1,13 @@
+SELECT STORE_NBR,
+DATE_FORMAT(DATE, '%Y-%m') AS MONTH,
+SUM(TOT_SALES) AS total_sales_revenue,
+COUNT(DISTINCT LYLTY_CARD_NBR) AS number_of_customers,
+COUNT(DISTINCT TXN_ID) AS total_transactions,
+ROUND(COUNT(DISTINCT TXN_ID)/ COUNT(DISTINCT LYLTY_CARD_NBR),2) AS average_txn_per_customer
+FROM qvi_data
+GROUP BY STORE_NBR, month 
+ORDER BY STORE_NBR, month 
+;
+
+
+
